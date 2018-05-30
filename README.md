@@ -26,14 +26,25 @@ To view your local version of the site, open **index.html** in Google Chrome.
 
 To complete this project, you will need to 
 (1)
-create the database tables 
+Inspect the existing the root-level **database.sqlite** using 'dbBrowser'.
+create the database tables. Answer: it's entirely empty.
+Think this through.  If only server.js runs, and all SQL commands go in the ...
+
+-----
+  
+* **Artist**
+  - id - Integer, primary key, required
+  - name - Text, required
+  - date_of_birth - Text, required
+  - biography - Text, required
+  - is_currently_employed - Integer, defaults to `1`
 in **migration.js**
-Use GREP to confirm: There is no mention of 'migration.js' in the jillions of lines of legacy code for this assignment; it only occurs in the instructions, therefore, 'migration.js' is supposed to be called by your code, most likely by the 'server.js'.  Furthermore, use FIND to confirm that no version of SERVER.JS exists yet, except as mentioned in two places: the instructions/readme, and in the npm, which uses it for NPM START.
+
 (2)
-- Create and export your Express app from a root-level file called **server.js**
+/*- Create and export your Express app from a root-level file called **server.js
 - Accept and set an optional port argument for your server to listen on from `    `
 - If `process.env.PORT` is not set, server should run on port `4000` (this is where the provided front-end will make requests to)
-and 
+and */
 (3)
 API routes specified below. 
 (4) 
