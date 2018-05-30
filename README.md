@@ -24,7 +24,21 @@ To view your local version of the site, open **index.html** in Google Chrome.
 
 ## Implementation Details
 
-To complete this project, you will need to create the database tables and API routes specified below. In addition to these specs, we have provided high-level steps for additional guidance in tying together all of your new skills in this project, linked at the end of this article. Feel free to not use these steps if you'd like an extra challenge. As you work through the project, be sure to use `npm` to install the necessary packages such as `express`.
+To complete this project, you will need to 
+(1)
+create the database tables 
+in **migration.js**
+(2)
+- Create and export your Express app from a root-level file called **server.js**
+- Accept and set an optional port argument for your server to listen on from `process.env.PORT`
+- If `process.env.PORT` is not set, server should run on port `4000` (this is where the provided front-end will make requests to)
+and 
+(3)
+API routes specified below. 
+(4) 
+Tying together: In addition to these specs, we have provided high-level steps for additional guidance in tying together all of your new skills in this project, linked at the end of this article. Feel free to not use these steps if you'd like an extra challenge. 
+
+As you work through the project, be sure to use `npm` to install the necessary packages such as `express`.
 
 To test this functionality you can run the testing suite and interact with the API via the provided front-end. If you want more data to interact with in the front-end, you can run the **seed.js** file to add data to your database.
 
