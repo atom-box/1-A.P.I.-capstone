@@ -4,8 +4,7 @@
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 4000;
-const setTableUp = require('./migration.js');
-
-
+const {createArtist, createSeries, createIssue} = require('./migration.js');
+setTableUp();
 app.listen(PORT);
 console.log(`server.js is listening.  On port number _${PORT}_`);
