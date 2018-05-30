@@ -5,9 +5,10 @@ const db = new sqlite3.Database('./database.sqlite');
 
 function createArtist(){
 	console.log("MIGRATION TABLE PRESENT!");
+	db.run("DROP TABLE IF EXISTS Artist");
 	db.run(
 		"CREATE TABLE Artist (id INTEGER PRIMARY KEY NOT NULL,name TEXT NOT NULL ,date_of_birth TEXT NOT NULL, biography TEXT NOT NULL,is_currently_employed INTEGER DEFAULT 1)", 
-		(error)=>console.log('oops 1...')
+		(error)=>{if(error) console.log('oops 1...')}
 	);	
 }
 
@@ -24,5 +25,4 @@ function createIssue(){
 
 
 
-module.exports = {createArtist}
-//, createSeries, createIssue}
+module.exports = {createArtist, createSeries, createIssue}
