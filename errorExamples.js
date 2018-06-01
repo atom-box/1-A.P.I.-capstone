@@ -13,8 +13,14 @@ function fireworks(a){
 		console.log('sleep');
 		//return; 
 	}
+	try{
+		console.log(`Passed-in thing has _${a.length}_ elements.`);
+		console.log(`Arrayified created-thing has _${mudhens.length}_ elements.`);
+	} catch(e) {
+		// do nothing ha ha ha ha ha
+	}
 	for(let x of mudhens){
-		console.log(`Kapow, ${x}`);
+		console.log(`[${x}] `);
 	}
 }
 
