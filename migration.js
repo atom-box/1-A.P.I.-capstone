@@ -8,9 +8,12 @@ function createArtist(){
 	db.run("DROP TABLE IF EXISTS Artist");
 	db.run(
 		"CREATE TABLE Artist (id INTEGER PRIMARY KEY NOT NULL,name TEXT NOT NULL ,date_of_birth TEXT NOT NULL, biography TEXT NOT NULL,is_currently_employed INTEGER DEFAULT 1)", 
-		(error)=>{if(error) console.log('oops 1...')}
-	);	
-}
+		error=>{if(error) {console.log('oops 1...')
+		} else {
+			console.log("Nothing wrong in 1.")
+		}
+	})
+};
 
 function createSeries(){
 	db.run("CREATE TABLE Series (		id INTEGER PRIMARY KEY NOT NULL		,name TEXT NOT NULL, description TEXT NOT NULL)", (error)=>console.log('oops 2...')
