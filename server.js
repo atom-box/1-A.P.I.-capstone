@@ -8,6 +8,6 @@ const {createArtist, createSeries, createIssue} = require('./migration.js');
 app.listen(PORT);
 console.log(`server.js is listening.  On port number _${PORT}_`);
 
-//createArtist();
-//createSeries();
+createArtist();
+createSeries();
 createIssue();
