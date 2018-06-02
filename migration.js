@@ -11,6 +11,8 @@ const sqlite3 = require('sqlite3');
 const db = new sqlite3.Database('./database.sqlite');
 
 function createArtist(){
+	db.serialize(()=>{
+
 	db.run(`DROP TABLE IF EXISTS Artist;`,
 	function(e){
 		if(e){
@@ -22,12 +24,12 @@ function createArtist(){
 	}
 	);
 	db.run(
-		`CREATE TABLE IF NOT EXISTS Artist (id INTEGER PRIMARY KEY NOT NULL,name TEXT NOT NULL ,date_of_birth TEXT NOT NULL, biography TEXT NOT NULL,is_currently_employed INTEGER DEFAULT 1)`, 
+		`CREATE TABLE Artist (id INTEGER PRIMARY KEY NOT NULL,name TEXT NOT NULL ,date_of_birth TEXT NOT NULL, biography TEXT NOT NULL,is_currently_employed INTEGER DEFAULT 1)`, 
 		error=>{if(error) {console.log(`bad artist 2...${error}`)
 		} else {
 			console.log("good artist 2")
 		}
-	})
+	})}) // end serialize
 };
 
 function createSeries(){
