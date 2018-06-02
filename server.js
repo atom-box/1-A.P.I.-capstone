@@ -5,8 +5,9 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 4000;
 const {createArtist, createSeries, createIssue} = require('./migration.js');
-createArtist();
-createSeries();
-createIssue();
 app.listen(PORT);
 console.log(`server.js is listening.  On port number _${PORT}_`);
+
+//createArtist();
+//createSeries();
+createIssue();
