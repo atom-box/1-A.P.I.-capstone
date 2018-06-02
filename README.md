@@ -26,12 +26,11 @@ To view your local version of the site, open **index.html** in Google Chrome.
 
 To complete this project, you will need to 
 (1)
-Inspect the existing the root-level **database.sqlite** using 'dbBrowser'.
-create the database tables. Answer: it's entirely empty.
-Think this through.  If only server.js runs, and all SQL commands go in the ...
-
+Next action. 
+Make the tables droppable: 
+Tables add, but all three with errors.  Needed: error handling better OR DROP/CREATE AS DROPPABLE better.
 -----
-  
+
 * **Artist**
   - id - Integer, primary key, required
   - name - Text, required
