@@ -23,3 +23,10 @@ const staticPath = path.resolve(__dirname, 'static');
 app.get('/', (req, res)=>{
 	res.status(200).end("Coming soon, a proper back end to COMIC.");
 } );
+app.get(`/api/artists`, (req, res)=>{
+	curr_empl_artists = ['Manny', 'Moe','and Jack'];
+	const outgoing = curr_empl_artists.toString();
+	res.status(200).end(outgoing);
+	});
+
+
