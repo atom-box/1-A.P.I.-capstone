@@ -6,6 +6,7 @@ const logger = require('morgan');
 const app = express();
 const PORT = process.env.PORT || 4000;
 const {createArtist, createSeries, createIssue} = require('./migration.js');
+const {getArtists} = require('./work/tools.js');
 app.listen(PORT);
 app.use(logger('tiny'));
 console.log(`server.js is listening.  On port number _${PORT}_`);
@@ -24,7 +25,9 @@ app.get('/', (req, res)=>{
 	res.status(200).end("Coming soon, a proper back end to COMIC.");
 } );
 app.get(`/api/artists`, (req, res)=>{
-	curr_empl_artists = ['Manny', 'Moe','and Jack'];
+	const curr_empl_artists = ['manny','moo','jaak'];
+
+	// const curr_empl_artists = getArtists();
 	const outgoing = curr_empl_artists.toString();
 	res.status(200).end(outgoing);
 	});
