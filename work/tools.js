@@ -1,7 +1,11 @@
 // Adapted from their "XPress" functions. 
 
 const helper = {};
+const express = require('express');
+const app = express();
 const baseUrl = 'http://localhost:4000/api';
+const sqlite3 = require('sqlite3').verbose();
+const db = new sqlite3.Database(process.env.TEST_DATABASE || './database.sqlite');
 
 helper.getSeries = () => {
   const url = `${baseUrl}/series`;
@@ -63,17 +67,19 @@ helper.deleteSeries = id => {
 };
 
 helper.getArtists = () => {
-  const url = `${baseUrl}/artists`;
-
-  return fetch(url).then(response => {
-    if (!response.ok) {
-      return new Promise(resolve => resolve([]));
-    }
-    return response.json().then(jsonResponse => {
-      return jsonResponse.artists.map(artist => camelcaseKeys(artist));
-    });
-  });
-};
+  const results = {};
+  db.all("SELECT nam FROM Artist WHERE is_currently_employed IS 1  ", 
+    function(e, rows){
+      if(e){
+        console.log(e);
+      }else{
+        console.log('no-prob')
+      }
+      results = rows; // TO DO !!!!
+    } );
+  //res.artists = r e s u l t
+  return results;
+ };
 
 helper.getArtist = id => {
   const url = `${baseUrl}/artists/${id}`;
