@@ -3,7 +3,9 @@ const db = new sqlite3.Database('./database.sqlite');
 
 let artistId, seriesId;
 
-
+//////////////// Make this a named function.  So it's callable elsewhere!
+function addKirbyAndLee(){
+db.serialize( ()=>{
 db.get("SELECT name FROM sqlite_master WHERE type='table' AND name='Artist'", (error, table) => {
   if (error) {
     throw new Error(error);
@@ -24,7 +26,7 @@ db.get("SELECT name FROM sqlite_master WHERE type='table' AND name='Artist'", (e
         if (error) {
           throw new Error(error);
         }
-
+// Call Mike McCabe for canvassing 6062218025
         if (table) {
           db.serialize(function() {
             db.run("INSERT INTO Series (name, description) VALUES ('Pyder Man', 'A web-slinging snake slithers through Queens cleaning the streets of bad data')");
@@ -53,4 +55,6 @@ db.get("SELECT name FROM sqlite_master WHERE type='table' AND name='Artist'", (e
     });
   }
 });
+
+});}
 
