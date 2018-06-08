@@ -6,14 +6,28 @@ const logger = require('morgan');
 const app = express();
 const PORT = process.env.PORT || 4000;
 const {createArtist, createSeries, createIssue} = require('./migration.js');
+const addKirbyAndLee = require('./seed.js');
 const helper = require('./work/tools.js');
 app.listen(PORT);
 app.use(logger('tiny'));
 console.log(`server.js is listening.  On port number _${PORT}_`);
 
+console.log('This is right before the 3 functions of MIGRATION.');
+
+
+(()=>{
 createArtist();
 createSeries();
-createIssue();
+createIssue();	
+})();
+
+
+
+//addKirbyAndLee();
+console.log('This is right after the 3 + 1 functions of MIGRATION.');
+
+
+// fillTables();
 // concern: will these reinvent the db every single time a request comes in?  
 // not sure how these were hidden in Olympic.
 

@@ -2,7 +2,7 @@ const sqlite3 = require('sqlite3');
 const db = new sqlite3.Database('./database.sqlite');
 
 let artistId, seriesId;
-
+console.log(`It's clobberin' time.`);
 //////////////// Make this a named function.  So it's callable elsewhere!
 function addKirbyAndLee(){
 db.serialize( ()=>{
@@ -57,4 +57,4 @@ db.get("SELECT name FROM sqlite_master WHERE type='table' AND name='Artist'", (e
 });
 
 });}
-
+module.exports =addKirbyAndLee;
