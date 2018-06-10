@@ -5,7 +5,7 @@ const express = require('express');
 const logger = require('morgan');
 const app = express();
 const PORT = process.env.PORT || 4000;
-const {createArtist, createSeries, createIssue} = require('./migration.js');
+const setUp = require('./migration.js');
 const addKirbyAndLee = require('./seed.js');
 const helper = require('./work/tools.js');
 app.listen(PORT);
@@ -15,11 +15,10 @@ console.log(`server.js is listening.  On port number _${PORT}_`);
 console.log('This is right before the 3 functions of MIGRATION.');
 
 
-(()=>{
-createArtist();
-createSeries();
-createIssue();	
-})();
+
+setUp.createArtist();
+setUp.createSeries();
+setUp.createIssue();
 
 
 

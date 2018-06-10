@@ -20,7 +20,7 @@ helper.getSeries = () => {
   });
 };
 
-helper.createSeries = series => {
+/*helper.createSeries = series => {
   const url = `${baseUrl}/series`;
   const fetchOptions = {
     method: 'POST',
@@ -37,7 +37,7 @@ helper.createSeries = series => {
       return camelcaseKeys(jsonResponse.series);
     });
   });
-};
+};*/
 
 helper.updateSeries = series => {
   const url = `${baseUrl}/series/${series.id}`;
@@ -93,6 +93,7 @@ helper.getArtist = id => {
   });
 };
 
+/* 
 helper.createArtist = artist => {
   const url = `${baseUrl}/artists`;
   const fetchOptions = {
@@ -111,6 +112,7 @@ helper.createArtist = artist => {
     });
   });
 };
+*/
 
 helper.updateArtist = artist => {
   const url = `${baseUrl}/artists/${artist.id}`;
@@ -190,6 +192,7 @@ helper.getIssues = seriesId => {
   });
 };
 
+/*
 helper.createIssue = (issue, seriesId) => {
   const url = `${baseUrl}/series/${seriesId}/issues`;
   const fetchOptions = {
@@ -208,6 +211,7 @@ helper.createIssue = (issue, seriesId) => {
     });
   });
 };
+*/
 
 helper.updateIssue = (issue, seriesId) => {
   const url = `${baseUrl}/series/${seriesId}/issues/${issue.id}`;

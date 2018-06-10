@@ -9,8 +9,10 @@ Ate a 7 layer bar circa 3:20pm
 Supplement it with the fake data in SEED.JS */
 const sqlite3 = require('sqlite3');
 const db = new sqlite3.Database('./database.sqlite');
+const setUp = {};
+setUp.purpose = "The helper object holds methods and tools for the COMICBOOK server.  Its complement is the ROUTES file, which holds the routing logic.";
 
-function createArtist(){
+setUp.createArtist = function(){
 	db.serialize(()=>{
 
 	db.run(`DROP TABLE IF EXISTS Artist;`,
@@ -35,7 +37,7 @@ function createArtist(){
 	})}) // end serialize
 };
 
-function createSeries(){
+setUp.createSeries = function(){
 		db.run("DROP TABLE IF EXISTS Series",
 	function(e){
 		if(e){
@@ -59,7 +61,7 @@ function createSeries(){
 	});
 }
 
-function createIssue(){
+setUp.createIssue = function (){
 		db.run(`DROP TABLE IF EXISTS Issue;`,
 	function(e){
 		if(e){
@@ -89,4 +91,4 @@ function createIssue(){
 }
 
 
-module.exports = {createArtist, createSeries, createIssue}
+module.exports = setUp;
