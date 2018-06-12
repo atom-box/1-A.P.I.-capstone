@@ -14,15 +14,19 @@ console.log(`server.js is listening.  On port number _${PORT}_`);
 
 console.log('This is right before the 3 functions of MIGRATION.');
 
-
-
 setUp.createArtist();
 setUp.createSeries();
 setUp.createIssue();
 
 
+//wrap StanLee & JackKirby in a try, catch, just as a start
 
-//addKirbyAndLee();
+try {
+	addKirbyAndLee();
+} catch(e) {
+	console.log("What now!  This: "+e)
+}
+
 console.log('This is right after the 3 + 1 functions of MIGRATION.');
 
 
