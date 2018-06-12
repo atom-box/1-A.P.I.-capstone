@@ -1,12 +1,10 @@
-/*to do next-action 
-Remember -
-to - - 
-restore FOREIGN KEY to the last two columns on SERIES !  
-Ate a 7 layer bar circa 3:20pm
+/*dev diary, June 12, 2018:
+I feel deceived.   I wasted days of my time trying to call 'migration.js', made me consider quitting this career.
+Turns out their secret parts call it from within the depths of their testing.  
+When doing #codeacedemy, look at the solutions EARLY ON.
 */
 
-/*This file should hold all of the table set-up.
-Supplement it with the fake data in SEED.JS */
+/*This doesn't need to export.  This just needs to create a db, call db.foo and db.bar via SERIALIZE.  And then stop cold, no export. */
 const sqlite3 = require('sqlite3');
 const db = new sqlite3.Database('./database.sqlite');
 const setUp = {};
