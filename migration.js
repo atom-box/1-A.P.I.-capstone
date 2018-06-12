@@ -13,7 +13,7 @@ db.serialize(()=>{
 
 
 	db.run(
-		`CREATE TABLE Artist (id INTEGER PRIMARY KEY NOT NULL,
+		`CREATE TABLE IF NOT EXISTS Artist (id INTEGER PRIMARY KEY NOT NULL,
 		name TEXT NOT NULL ,
 		date_of_birth TEXT NOT NULL, biography TEXT NOT NULL,
 		is_currently_employed INTEGER DEFAULT 1)`, 
