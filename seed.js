@@ -1,16 +1,24 @@
+
+/*
+What is this?  They didn't tell me not to touch it. 
+Hypothesis: I think it is just a utility to run from node on an as-needed ad hoc basis.
+Try this then: 
+Check size of db.sqlite.
+delete the entire db.  
+Run your migration.js.  
+Run seed.js.  
+Check size of db.sqlite.
+*/
+
 const sqlite3 = require('sqlite3');
 const db = new sqlite3.Database('./database.sqlite');
 
 let artistId, seriesId;
-console.log(`It's clobberin' time.`);
-//////////////// Make this a named function.  So it's callable elsewhere!
-function addKirbyAndLee(){
 db.serialize( ()=>{
-db.get("SELECT name FROM sqlite_master WHERE type='table' AND name='Artist'", (error, table) => {
-  if (error) {
-    throw new Error(error);
-  }
-
+  db.get("SELECT name FROM sqlite_master WHERE type='table' AND name='Artist'", (error, table) => {
+    if (error) {
+        throw new Error(error);
+    }
   if (table) {
     db.serialize(function() {
       db.run("INSERT INTO Artist (name, date_of_birth, biography) VALUES ('Stan Lee', 'December 28, 1922', 'I definitely work here')");
@@ -18,7 +26,6 @@ db.get("SELECT name FROM sqlite_master WHERE type='table' AND name='Artist'", (e
         if (error) {
           throw new Error(error);
         }
-
         artistId = this.lastID;
       });
 
@@ -26,7 +33,6 @@ db.get("SELECT name FROM sqlite_master WHERE type='table' AND name='Artist'", (e
         if (error) {
           throw new Error(error);
         }
-// Call Mike McCabe for canvassing 6062218025
         if (table) {
           db.serialize(function() {
             db.run("INSERT INTO Series (name, description) VALUES ('Pyder Man', 'A web-slinging snake slithers through Queens cleaning the streets of bad data')");
@@ -34,7 +40,6 @@ db.get("SELECT name FROM sqlite_master WHERE type='table' AND name='Artist'", (e
               if (error) {
                 throw new Error(error);
               }
-
               seriesId = this.lastID;
             });
             db.get("SELECT name FROM sqlite_master WHERE type='table' AND name='Issue'", (error, table) => {
@@ -48,6 +53,7 @@ db.get("SELECT name FROM sqlite_master WHERE type='table' AND name='Artist'", (e
                   db.run(`INSERT INTO Issue (name, issue_number, publication_date, artist_id, series_id) VALUES ('BashMan Meets ScareCurl', 2, 'January 8, 1990', ${artistId}, ${seriesId})`);
                 });
               }
+
             });
           });
         }
@@ -56,5 +62,4 @@ db.get("SELECT name FROM sqlite_master WHERE type='table' AND name='Artist'", (e
   }
 });
 
-});}
-module.exports =addKirbyAndLee;
+});
