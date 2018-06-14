@@ -17,12 +17,12 @@ const app = express();
 const logger = require('morgan');
 //const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 4000;
-const routes = require('./work/routes.js');
+const router = require('./work/routes.js');
 //app.use(bodyParser.json());
 app.use(logger('tiny'));
 //const todos = '/api';
-console.log(`Typeof ROUTES is ${routes} `);
-app.use('/api' , routes);
+console.log(`Typeof ROUTES is ${router} `);
+app.use('/api' , router );
 // Crashing here!  Look in Hahn for syntax.
 app.listen(PORT);
 
