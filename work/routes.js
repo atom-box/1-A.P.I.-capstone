@@ -1,22 +1,36 @@
 const express = require('express');
 const router = express();
+const stub = `/api`; // **********************
 
-router.get('/', (req, res)=>{
-	res.status(200).end("Coming soon, a proper back end to COMIC.");
+
+router.get(`${stub}`, (req, res)=>{
+	res.status(200).end("Close; insufficient info.\t\t\t\tProper useage: /api/artists  or /api/series ");
 } );
 
-router.get('/api', (req, res)=>{
-	res.status(200).end("Try again.\nProper useage: /api/artists  or /api/series ");
-} );
+router.get(`${stub}/artists`, (req, res)=>{
+	const outgoing = 'this   is   thegetallartistsworking route';
+	res.status(200).end(outgoing);
+
+});
 
 
+/*helper.getArtists = () => {
+  const results = {};
+  db.all("SELECT nam FROM Artist WHERE is_currently_employed IS 1  ", 
+    function(e, rows){
+      if(e){
+        console.log(e);
+      }else{
+        console.log('no-prob')
+      }
+      results = rows; // TO DO !!!!
+    } );
+  //res.artists = r e s u l t
+  return results;
+ };      */
 
-router.get(`/api/artists`, (req, res)=>{
-	const curr_empl_artists = helper.getArtists();
+
 
 	// const curr_empl_artists = getArtists();
-	const outgoing = curr_empl_artists.toString();
-	res.status(200).end(outgoing);
-	});
 
 module.exports = router;
