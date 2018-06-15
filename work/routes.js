@@ -1,5 +1,3 @@
-console.log('Made it to here.       line 1 of the ROUTES.JS...');
-
 const express = require('express');
 const router = express();
 const sqlite = require(`sqlite3`);
@@ -10,11 +8,16 @@ router.get("/", (req, res)=>{
 } );
 
 router.get(`/artists`, (req, res)=>{
-	const outgoing = 'this   is   thegetallartistsworking route';
-	console.log('Made it to here.       About to selectfromallartists...');
-	//outgoing = db.each(`SELECT * FROM Artist WHERE is_currently_employed IS 1;`);
-	//outgoing.json();
-	res.status(200).end(outgoing);
+	const outgoing = null;
+	db.all(`SELECT * FROM Artist WHERE is_currently_employed is 1;`, (error, rows)=> {
+		if (error){
+			console.log(`In artists route -->${error}`);
+			return null;
+		}	else {
+			outgoing = rows;			
+		}	
+	});
+	res.status(200).json( {artists: outgoing} );
 });
 
 
