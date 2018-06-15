@@ -1,4 +1,5 @@
-// Adapted from their "XPress" functions. 
+// I will treat this as a Shipyard, building my functions alongside there testing code.  
+//  For now at least. Adapted from their "XPress" functions. 
 
 const helper = {};
 const express = require('express');
@@ -19,6 +20,7 @@ helper.getSeries = () => {
     });
   });
 };
+
 
 /*helper.createSeries = series => {
   const url = `${baseUrl}/series`;
@@ -65,6 +67,13 @@ helper.deleteSeries = id => {
   };
   return fetch(url, fetchOptions);
 };
+
+
+const stub = `/api`;
+router.get(`${stub}/artists`, (req, res)=>{
+
+});
+
 
 helper.getArtists = () => {
   const results = {};
