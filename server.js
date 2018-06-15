@@ -21,8 +21,17 @@ const router = require('./work/routes.js');
 //app.use(bodyParser.json());
 app.use(logger('tiny'));
 //const todos = '/api';
-console.log(`Typeof ROUTES is ${router} `);
-app.use('/api' , router );
+//console.log(`Typeof ROUTES is ${router} `);
+app.use('/api', router);
+app.get('/', (req, res)=>{
+	res.status(200).send("All routes start with a.p.i. slash.");
+}); 
+app.use( function(req, res) {
+	res.send("Get serious, Bro.");
+});
+
+
+
 // Crashing here!  Look in Hahn for syntax.
 app.listen(PORT);
 

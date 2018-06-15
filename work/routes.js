@@ -9,7 +9,7 @@ router.get("/", (req, res)=>{
 	res.status(200).end("Close; insufficient info.\t\t\t\tProper useage: /api/artists  or /api/series ");
 } );
 
-router.get(`/api/artists`, (req, res)=>{
+router.get(`/artists`, (req, res)=>{
 	const outgoing = 'this   is   thegetallartistsworking route';
 	console.log('Made it to here.       About to selectfromallartists...');
 	//outgoing = db.each(`SELECT * FROM Artist WHERE is_currently_employed IS 1;`);
