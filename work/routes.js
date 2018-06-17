@@ -3,21 +3,19 @@ const router = express();
 const sqlite = require(`sqlite3`);
 const db = new sqlite.Database(`./database.sqlite`);
 
-router.get("/", (req, res)=>{
+router.get("/", (req, res, next)=>{
 	res.status(200).end("Close; insufficient info.\t\t\t\tProper useage: /api/artists  or /api/series ");
 } );
 
-router.get(`/artists`, (req, res)=>{
-	const outgoing = null;
-	db.all(`SELECT * FROM Artist WHERE is_currently_employed is 1;`, (error, rows)=> {
+router.get(`/artists`, (req, res, next)=>{
+	//let rows = null;
+	db.all(`SELECT * FROM Artist WHERE Artist.is_currently_employed = 1;`, (error, artists)=> {
 		if (error){
 			console.log(`In artists route -->${error}`);
 			return null;
-		}	else {
-			outgoing = rows;			
 		}	
+    res.status(200).json( {"artists": artists} );
 	});
-	res.status(200).json( {artists: outgoing} );
 });
 
 
