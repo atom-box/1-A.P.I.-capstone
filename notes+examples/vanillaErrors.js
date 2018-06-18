@@ -1,24 +1,20 @@
 const http = require('http');
 const PORT = 2112;
-const srvr = http.createServer((req, res)=>{
-	console.log(`I see    _${Object.keys(req)}_ &  _${PORT}_`);
-	//  stay tuned
-}  );
 
-srvr.on('req', (req, res) => {
+http.createServer((request, response) => {
+  const { headers, method, url } = request;
+  let body = [];
+  request.on('error', (err) => {
+    console.error(err);
+  }).on('data', (chunk) => {
+    body.push(chunk);
+  }).on('end', () => {
+    body = Buffer.concat(body).toString();
+    // At this point, we have the headers, method, url and body, and can now
+    // do whatever we need to in order to respond to this request.
+  });
+}).listen(PORT); // Activates this server, listening on port 8080.
 
-	//  coming soon, too
-	const { method, url} = req;
-	console.log('I see    _${method}_ &  _${url}_');
-// Weird! Cool.  Surprising:
-// Note -- req is an OBJECT
-// Note -- req is an instance of IncomingMessage !! 
-// Note -- this FAILED when outside this code-block.
-
-
-} )
-
-srvr.listen(PORT);
 console.log(`Local  host   is    ${PORT}`);
 
 // sara is associate dean
