@@ -13,7 +13,8 @@ Next action may be to find Hahn syntax for this.  Is mine in wrong order? Missin
 */
 const express = require('express');
 const app = express();
-
+const sump = require(`./work/homeMadeErrorHandler.js`);
+const jinx = null;
 const logger = require('morgan');
 //const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 4000;
@@ -28,24 +29,16 @@ app.get('/', (req, res)=>{
 }); 
 app.use( function(req, res) {
 	res.send("Get serious, Bro.");
+	jinx = new Error('Grrrr.')
+	next(jinx);
 });
 
+app.use(function(err, req, res, next) {
+	console.error(err);
+	}); 
 
 
-// Crashing here!  Look in Hahn for syntax.
 app.listen(PORT);
-
-
 console.log(`server.js is listening.  On port number _${PORT}_`);
-
-
-
-//const path = require('path');
-//const staticPath = path.resolve(__dirname, 'static');
-
-//app.get('/', (req, res)=>{
-//	res.status(200).end("Coming soon, a proper back end to COMIC.");
-//} );
-
-
+module.exports = app;
 
