@@ -1,7 +1,7 @@
-// write a chainable middleware stack.  
+// failed to chain!  just learned DATE and RES.WRITE(x).  
 // based on "Express.js Fundamentals - 6 - Middleware Explained" youtube
 // June 10, 2018
-
+ 
 //first write the three-chain fns withOUT next syntax 
 
 const express = require("express");
@@ -24,8 +24,9 @@ function sayMiddle() {
 	return "Arthur";
 }
 app.get(`/`, (req, res)=>{
-	res.write(message);
-	app.end();
+	//res.write(message);
+	//console.log(sayFirst());console.log(sayMiddle());console.log(sayLast());
+	app.end(message);
 } );
 app.listen(PORT);
 console.log("URL is localhost: " + PORT);

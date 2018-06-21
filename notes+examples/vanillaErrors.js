@@ -17,13 +17,3 @@ http.createServer((request, response) => {
 
 console.log(`Local  host   is    ${PORT}`);
 
-// sara is associate dean
-// dean is Japanese-American
-// that emily heller did the Action-Research on teacher learning cycle
-
-/*
-As we cheered #ElTri, 
-my subconcious mind imagined the Zimmerman telegram was accidentally delivered to Orotorio, who rebuffed it with a sprinting, daring, confident offense, rushing across the Atlantic, sending GER to the showers, ending WWII prematurely.
-
-A vigorous, daring response to the Zimmerman telegram, years later.
-*/
