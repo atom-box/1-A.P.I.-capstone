@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express();
 const sqlite = require(`sqlite3`);
+const bodyParser = require("body-parser");
 const db = new sqlite.Database(process.env.TEST_DATABASE || './database.sqlite');
 
 router.get("/fink", (req, res, next)=>{
@@ -47,7 +48,10 @@ router.post('/artists',(req, res, next) => {
   }); // end db.put
 });   // end POST route//
 
-
+router.get(`/artists/:thing`, (req, res, next)=>{
+  res.send(`What was after the colon?  This--> [${req.params.thing}].`);
+});
+// don't trust any of the parsed parts. 
 
 
 //my sole error handler is in main server.js.
