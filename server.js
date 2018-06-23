@@ -1,16 +1,6 @@
 // created by me, 100%
 // This is the main javascript that calls all else
 
-/*
-
-
-THIS    CURRENTLY    CRASHES,   INSTEAD OF FINDING      API ROUTE
-THURSDAY MORNING I FOUND OUT THAT SECOND PART OF LINE 24 is currently an object but is supposed to be a function. 
-But did other people do like this?
-
-
-Next action may be to find Hahn syntax for this.  Is mine in wrong order? Missing a 'USE - require ?'
-*/
 const express = require('express');
 const app = express();
 let sump = null;

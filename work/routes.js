@@ -3,9 +3,11 @@ const router = express();
 const sqlite = require(`sqlite3`);
 const db = new sqlite.Database(process.env.TEST_DATABASE || './database.sqlite');
 
-router.get("/", (req, res, next)=>{
-	res.status(200).end("Close; insufficient info.\t\t\t\tProper useage: /api/artists  or /api/series ");
-} );
+router.get("/fink", (req, res, next)=>{
+	res.status(409);
+  const fink = new Error(`Fink spotted.  You entered a "test error"!! `);
+  next(fink);
+}); // end bad get for root get request
 
 router.get(`/artists`, (req, res, next)=>{
 	//let rows = null;
@@ -25,14 +27,11 @@ router.post('/artists',(req, res, next) => {
     bio = req.body.artist.biography , 
     employed = req.body.artist.is_currently_employed;
 
-
-
-
-
-
   if (!( i && name && dob && bio )){
+    res.status(400); 
+    // I hope these 2 lines satisfy the README; 'Returns a 400 response.'
     next(new Error `Some missing input in POST ARTISTS`); // hope this trickles out of the bottom of ROUTES.JS and finds the error-handling bottom of SERVER.JS
-  }
+  } // end IF
   const query = `INSERT INTO Artist (id, name, date_of_birth, biography, is_currently_employed) VALUES ($i, $n, $dob, $b, $e);`; 
   db.put(query, {
     $i: i, 
@@ -46,29 +45,12 @@ router.post('/artists',(req, res, next) => {
       next(err);
       //console.error(e);
     }
-  } );
-} );
-
-//my especially useless error handler is in main server.js.
-
-
-/*helper.getArtists = () => {
-  const results = {};
-  db.all("SELECT nam FROM Artist WHERE is_currently_employed IS 1  ", 
-    function(e, rows){
-      if(e){
-        console.log(e);
-      }else{
-        console.log('no-prob')
-      }
-      results = rows; // TO DO !!!!
-    } );
-  //res.artists = r e s u l t
-  return results;
- };      */
+  }); // end db.put
+});   // end POST route
 
 
 
-	// const curr_empl_artists = getArtists();
 
+//my sole error handler is in main server.js.
+// I am really counting on errors in ROUTES.JS to fall to the bottom here and drip on out to the bottom of SERVER.JS
 module.exports = router;

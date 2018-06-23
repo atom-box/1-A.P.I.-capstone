@@ -1,5 +1,5 @@
 function sump(jinx, req, res, next){
-	console.log(`Don't look now but we shewt are...${jinx} `);
+	console.log(`Homemade error handler says...${jinx} `);
 }
 
 module.exports = sump;
