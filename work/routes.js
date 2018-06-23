@@ -38,15 +38,14 @@ router.post('/artists',(req, res, next) => {
     $n: name, 
     $dob: dob, 
     $b: bio , 
-    $e: employed  }, 
+    $e: employed  
+  }, 
     (err)=>{
-      console.log(`Ham.  Swiss.  ${e}. `);
     if (err) {
       next(err);
-      //console.error(e);
-    }
+    } // end IF ERR
   }); // end db.put
-});   // end POST route
+});   // end POST route//
 
 
 
