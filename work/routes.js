@@ -34,22 +34,25 @@ router.post('/artists',(req, res, next) => {
     next(new Error `Some missing input in POST ARTISTS`); // hope this trickles out of the bottom of ROUTES.JS and finds the error-handling bottom of SERVER.JS
   } // end IF
   const query = `INSERT INTO Artist (id, name, date_of_birth, biography, is_currently_employed) VALUES ($i, $n, $dob, $b, $e);`; 
-  db.put(query, {
+  const values = {
     $i: i, 
     $n: name, 
     $dob: dob, 
     $b: bio , 
     $e: employed  
-  }, 
-    (err)=>{
+  };
+  db.put(query, values, 
+    (err, retrieval)=>{
     if (err) {
       next(err);
+    } else {
+      res.status(200).send({artist: retrieval})
     } // end IF ERR
   }); // end db.put
 });   // end POST route//
 
 router.get(`/artists/:thing`, (req, res, next)=>{
-  res.send(`What was after the colon?  This--> [${req.params.thing}].`);
+  res.send(`What was after the colon?  These--> [${Object.keys(req)}] This--> [${req.params.thing}].`);
 });
 // don't trust any of the parsed parts. 
 
