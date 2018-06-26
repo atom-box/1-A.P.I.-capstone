@@ -13,13 +13,16 @@ chef with the following ingredients:
 4) Add their API thing? 
 */
 
+// code/calender/hahn2/js/app.js   works for TROY but not 404.  okay to use as a guide
+
 const http = require('http');
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 // BODY PARSER PROBABLY NOT NEEDED; IT IS FOR FORM SUBMITS
 const path = require("path");
-path.resolve('__dirname', '../views');
+path.resolve('__dirname', './views');
+// BASED ON HAHN2, JUST WANT ONE DOT HERE.
 
 const app = express();
 app.set('view engine', 'ejs' );
