@@ -1,0 +1,17 @@
+{
+  "name": "random-number-api",
+  "version": "1.0.0",
+  "description": "This is a side-exercise, while I'm wrapping up Section 6 of the Codecademy 'Build Your Own APIs' course.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Evan Genest",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "morgan": "^1.9.0",
+    "moustache": "0.0.2"
+  }
+}
