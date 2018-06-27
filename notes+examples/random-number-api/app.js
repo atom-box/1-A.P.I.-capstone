@@ -19,9 +19,10 @@ const http = require('http');
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const ejs = require('ejs');
 // BODY PARSER PROBABLY NOT NEEDED; IT IS FOR FORM SUBMITS
 const path = require("path");
-path.resolve('__dirname', './views');
+//path.resolve('__dirname', './viewz');
 // BASED ON HAHN2, JUST WANT ONE DOT HERE.
 
 const app = express();
@@ -30,12 +31,12 @@ app.use(morgan('dev'));
 // WHAT IS DIFF BTWN SET AND USE?
 
 app.get('/', (req, res, next)=> {
-	res.render('short', function(e) {
+	res.render('header', function(e) {
 		if (e) {
 			next(e);
 		}
 	});
-	});
+});
 
 function jinx (err, req, res, next) {
 	console.log(`This just in: ${err}`);
@@ -43,7 +44,7 @@ function jinx (err, req, res, next) {
 app.use(jinx);
 
 
-const PORT = 5445;
+const PORT = 5432;
 http.createServer(app).listen(
 	PORT, console.log(`App is listening on port #${PORT}`)
 	);
