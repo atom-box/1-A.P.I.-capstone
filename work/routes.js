@@ -54,9 +54,78 @@ router.post('/artists',(req, res, next) => {
 router.get(`/artists/:thing`, (req, res, next)=>{
   res.send(`What was after the colon?  These--> [${Object.keys(req)}] This--> [${req.params.thing}].`);
 });
+
+router.put( `/artists/:id` ,(req, res, next)=>{
+  const msg = ``;
+  msg =`Gonna put PRE&C into artist --${req.params.id}-- `;
+  console.log(msg);
+  next('No route here yet in ARTIST-id PUT.');
+} );
+
+router.delete( `/artists/:id`, (req, res, next)=>{
+  // CH AN GE WORKING TO FALSE .
+  const msg = ``;
+  msg =`Going to delete --${req.params.id}-- `;
+  console.log(msg);
+  next('Missing WORK=0 statement in artist delete.');
+} );
+
+router.get('/series/',(req, res, next)=>{
+  res.series = ` to       do    john   deere `;
+  const msg = `Here are many series ${'foo'} `;
+  next("there's no rout here");
+} );
+
+router.post('/series', (req, res, next)=>{
+  const newSeries = req.body.series;
+  console.log(`Here is a new series about _${newSeries}_`);
+  next('nuttin in Line 82 yet.')
+} );
+
+router.get('/series/:id', (req, res, next)=>{
+  res.body.series = `nuttin here about SERIES _${id}_ yet`;
+  res.status(200).send('nothing nothing nothing todo');
+} );
+
+router.put('/series/:id', (req, res, next)=>{
+  const msg = `The plan is to put _${id}_ in there...`;
+  res.status(200).send(msg);
+} );
+
+router.delete('/series/:id', (req, res, next)=>{
+  next('No delete route yet for _${id}_');
+  res.status(204).send('Burma-Shave!');
+} );
+
+router.get('/series/:id/issues/',(req, res, next)=>{
+  let manyManyIssues = [];
+  res.status(200).send('Some issues _${manyManyIssues}_ will be here.');
+});
+
+router.post('/series/:id/issues', (req, res, next)=>{
+    let msg = req.body.issue;
+    res.body.issue(msg);
+    res.status(201).send();
+});
+
+
+router.put('/series/:id/issues/:id2', (req, res, next)=>{
+  let msg = `Take this info ${req.body.issue}`;
+  res.status(828).send();
+} );
+
+router.delete('/series/:id/issues/:id2', (req, res, next)=>{
+  let msg = `I'm pooped.`;
+  res.send(msg);
+} );
+
+
+
+
 // don't trust any of the parsed parts. 
 
 
 //my sole error handler is in main server.js.
 // I am really counting on errors in ROUTES.JS to fall to the bottom here and drip on out to the bottom of SERVER.JS
 module.exports = router;
+// //  //  // //  //  //  // //  //  // //  //
