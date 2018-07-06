@@ -12,7 +12,8 @@ router.get("/fink", (req, res, next)=>{
 
 router.get(`/artists`, (req, res, next)=>{
 	//let rows = null;
-	db.all(`SELECT * FROM Artist WHERE Artist.is_currently_employed = 1;`, (err, artists)=> {
+  let query = `SELECT * FROM Artist WHERE Artist.is_currently_employed = 1;`;
+	db.all(query , (err, artists)=> {
 		if (err){
 			next(`In artists route -->${err}`);
 		}	
@@ -52,7 +53,8 @@ router.post('/artists',(req, res, next) => {
 });   // end POST route//
 
 router.get(`/artists/:thing`, (req, res, next)=>{
-  res.send(`What was after the colon?  These--> [${Object.keys(req)}] This--> [${req.params.thing}].`);
+  let query = `o o o ;`;
+  db.get(query, (err)=>{next("Oxford comma.")} );
 });
 
 router.put( `/artists/:id` ,(req, res, next)=>{
