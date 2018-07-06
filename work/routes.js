@@ -65,10 +65,22 @@ router.put( `/artists/:id` ,(req, res, next)=>{
 } );
 
 router.delete( `/artists/:id`, (req, res, next)=>{
+
+
   // CH AN GE WORKING TO FALSE .
-  const msg = ``;
-  msg =`Going to delete --${req.params.id}-- `;
+  let msg = `UPDATE Artist SET is_currently_employed = 0 WHERE Artist.id ` ;
   console.log(msg);
+  db.run(msg, (err)=>{
+    if (err){
+      next(err);
+    }else{
+      msg = `SELECT FROM Artist WHERE Artist.id = ${id}`;
+      db.get(msg, (err, artist)=> {
+        res.status(200).json({ artist: artist });
+      } );
+    }
+  } );
+
   next('Missing WORK=0 statement in artist delete.');
 } );
 
