@@ -28,7 +28,9 @@ Gotcha for scope and declaring variables in JS.
 const express = require(`express`);
 const app = express();
 const route0 = `/`;
-let organism = `{"kingdom": "plant", "name": "daisy" }`;
+let organism1 = `{"kingdom": "plant", "name": "daisy" }`;
+let organism2 = ``;
+
 const noun0 = `sauce`;
 app.get(route0, (req, res)=>{
 	res.end(`${noun0}, no ${noun0}...`);
@@ -38,8 +40,16 @@ app.listen(PORT, (req, res)=>{
 	console.log(`Server is looking for ${noun0} on localhost: ${PORT}`);
 } );
 
-let parts = JSON.parse(organism);
+let count0 = organism2.indexOf('{');
+let count1 = organism2.indexOf(',');
+let count2 = organism2.indexOf('}');
+console.log(`Indexes of curly, comma, closed-curly are: ${count0}, ${count1}, and ${count2}.`);
+// Indexes will be -1 for missing chars.  
+// This returns '-1, -1, -1'
 
+if(organism2 && count0 > -1){
+	let parts = JSON.parse(organism2);	
+}
 
 /*
 	https://medium.com/@adamzerner/how-bodyparser-works-247897a93b90
