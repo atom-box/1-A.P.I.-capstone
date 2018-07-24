@@ -28,6 +28,7 @@ Gotcha for scope and declaring variables in JS.
 const express = require(`express`);
 const app = express();
 const route0 = `/`;
+let organism = `{"kingdom": "plant", "name": "daisy" }`;
 const noun0 = `sauce`;
 app.get(route0, (req, res)=>{
 	res.end(`${noun0}, no ${noun0}...`);
@@ -36,6 +37,9 @@ const PORT = 2055;
 app.listen(PORT, (req, res)=>{
 	console.log(`Server is looking for ${noun0} on localhost: ${PORT}`);
 } );
+
+let parts = JSON.parse(organism);
+
 
 /*
 	https://medium.com/@adamzerner/how-bodyparser-works-247897a93b90
