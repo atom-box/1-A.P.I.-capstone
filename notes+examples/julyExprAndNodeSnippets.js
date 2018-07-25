@@ -25,6 +25,32 @@ console.log(b); // 7, b/c b is global
 Gotcha for scope and declaring variables in JS.
 */
 
+let PORT = 2055;
+
+var http = require('http');
+var postHTML = 
+  '<html><head><title>Post Example</title></head>' +
+  '<body>' +
+  '<form method="post">' +
+  'Input 1: <input name="input1"><br>' +
+  'Input 2: <input name="input2"><br>' +
+  '<input type="submit">' +
+  '</form>' +
+  '</body></html>';
+
+http.createServer((req, res)=>{
+	console.log(`An event listener from line 42 MIGHT be listening near localhost:${PORT}`);
+	res.end('oogity boogity.');
+} ).listen(PORT);
+
+/*
+	https://docs.nodejitsu.com/articles/HTTP/servers/how-to-read-POST-data/
+*/
+
+
+
+
+PORT = 1111;
 const express = require(`express`);
 const app = express();
 const route0 = `/`;
@@ -35,7 +61,6 @@ const noun0 = `sauce`;
 app.get(route0, (req, res)=>{
 	res.end(`${noun0}, no ${noun0}...`);
 } );
-const PORT = 2055;
 app.listen(PORT, (req, res)=>{
 	console.log(`Server is looking for ${noun0} on localhost: ${PORT}`);
 } );
@@ -54,4 +79,16 @@ if(organism2 && count0 > -1){
 /*
 	https://medium.com/@adamzerner/how-bodyparser-works-247897a93b90
 	Dude explains middleware and then BODYPARSER for the req object
+*/
+
+let func1 = function(alpha) {
+	arguments.callee === func1;
+	arguments[0] === alpha;
+	arguments[1] === 2;
+	arguments.length === 3;
+};
+func1(1, 2, 3);
+
+/*
+	https://docs.nodejitsu.com/articles/javascript-conventions/what-is-the-arguments-object/
 */
