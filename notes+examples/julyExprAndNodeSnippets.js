@@ -40,7 +40,7 @@ var postHTML =
 
 http.createServer((req, res)=>{
 	console.log(`An event listener from line 42 MIGHT be listening near localhost:${PORT}`);
-	res.end('oogity boogity.');
+	res.end(postHTML);
 } ).listen(PORT);
 
 /*
