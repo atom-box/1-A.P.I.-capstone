@@ -26,7 +26,6 @@ Gotcha for scope and declaring variables in JS.
 */
 
 let PORT = 2055;
-
 var http = require('http');
 var postHTML = 
   '<html><head><title>Post Example</title></head>' +
@@ -40,13 +39,18 @@ var postHTML =
 
 http.createServer((req, res)=>{
 	console.log(`An event listener from line 42 MIGHT be listening near localhost:${PORT}`);
-	res.end(postHTML);
+	let body = '';
+	req.on('data', chunk => {body = body + chunk} );
+	req.on('end', ()=>{
+		console.log(`What was received: _${body}_`);
+		res.writeHead(200);
+		res.end(postHTML);
+	} )	;
 } ).listen(PORT);
 
 /*
 	https://docs.nodejitsu.com/articles/HTTP/servers/how-to-read-POST-data/
 */
-
 
 
 
