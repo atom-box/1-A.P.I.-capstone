@@ -1,4 +1,5 @@
 # X-Press Publishing
+8/1/2018: I wrote this line while I was in the checked out branch called artistsobjects.  It should disappear in the master branch.
 
 ## Project Overview
 
@@ -99,10 +100,22 @@ In order for the tests and provided front-end to run properly, you will need to 
 - GET
   - Returns a 200 response containing the artist with the supplied artist ID on the `artist` property of the response body
   - If an artist with the supplied artist ID doesn't exist, returns a 404 response
-- PUT
-  - Updates the artist with the specified artist ID using the information from the `artist` property of the request body and saves it to the database. Returns a 200 response with the updated artist on the `artist` property of the response body
+- PUT 
+  - Updates the artist 
+  with the specified artist ID 
+  using the information from 
+  the `artist` property 
+  of the request body 
+  and saves it to the database. 
+  Returns a 200 response 
+  with the updated artist 
+  on the `artist` property 
+  of the response body
+
   - If any required fields are missing, returns a 400 response
   - If an artist with the supplied artist ID doesn't exist, returns a 404 response
+
+
 - DELETE
   - Updates the artist with the specified artist ID to be unemployed (`is_currently_employed` equal to `0`). Returns a 200 response.
   - If an artist with the supplied artist ID doesn't exist, returns a 404 response
@@ -110,9 +123,13 @@ In order for the tests and provided front-end to run properly, you will need to 
 **/api/series**
 - GET
   - Returns a 200 response containing all saved series on the `series` property of the response body
+
+
+
 - POST
   - Creates a new series with the information from the `series` property of the request body and saves it to the database. Returns a 201 response with the newly-created series on the `series` property of the response body
   - If any required fields are missing, returns a 400 response
+
 
 **/api/series/:seriesId**
 - GET
@@ -126,6 +143,12 @@ In order for the tests and provided front-end to run properly, you will need to 
   - Deletes the series with the supplied series ID from the database if that series has no related issues. Returns a 204 response.
   - If the series with the supplied series ID has related issues, returns a 400 response.
   - If a series with the supplied series ID doesn't exist, returns a 404 response
+    &^&^^^^&^&^&^&^^&^&^&&^&&&&^^^^^^^^&
+    &^&^^^^&^&^&^&^^&^&^&&^&&&&^^^^^^^^&
+    &^&^^^^&^&^&^&^^&^&^&&^&&&&^^^^^^^^&
+    &^&^^^^&^&^&^&^^&^&^&&^&&&&^^^^^^^^&
+
+
 
 **/api/series/:seriesId/issues**
 - GET
@@ -156,3 +179,33 @@ To run these tests, first, open the root project directory in your terminal. The
 
 As you implement functionality, run the tests to ensure you are creating correctly named variables and functions that return the proper values.
 The tests will additionally help you identify edge cases that you may not have anticipated when first writing the application.
+
+Stub out the route grabbers, with no SQL, and no logic, no error handling.  In fact, don't have time yet to make the stubs run.  Do that next.
+
+without yet implementing, write all the syntax for the SQL queries
+double-check every time it says RETURNS. returnthatwhichthouought
+integrate the SQL queries
+
+Goal is to finish so I can do vanilla js.
+Goal is to finish so I can shave this beard.
+Goal is to finish so I can stitch in MongoDB. 
+
+Wes Bos.
+React.
+Mongo.
+Udacity forever. 
+*opensourc*
+*beyondcompare-teaching*
+*data api's exposed to the web*
+Beatles : Brian Wilson :: U2 : cervantes esquival
+
+I feel like you give me this enormous gift of what is next.  Like a flashlight for the next thirty years.  
+
+Donate to the Guardian
+NEXT
+IS 
+LINE 56
+GO 
+LOOK AND MAKE SURE YOU CALL SQL STATEMENTS VIA 
+DB.RUN(query, vars, (err)=> {}    ), 
+NOT DB.GET
