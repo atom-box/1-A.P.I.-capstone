@@ -36,8 +36,6 @@ router.get(`/artists`, (req, res, next)=>{
 	});
 });
 
-  - Returns a 200 response containing the artist with the supplied artist ID on the `artist` property of the response body
-  - If an artist with the supplied artist ID doesn't exist, returns a 404 response
 //mcdonalds INCOMING ID# IS PARSED FROM THE ROUTE-URL
 //mcdonalds res.status(200).json( {"artist": thatArtistViaSQLVariable} )
 //mcdonaldsError res.status(404)
@@ -53,7 +51,6 @@ router.get(`/artists/:thing`, (req, res, next)=>{
 //mcdonalds res.status(201).
 //mcdonalds res.body.artist.xxxx  id, name dob is_currently_employed
 router.post('/artists',(req, res, next) => {
-
   const i = req.body.artist.id, 
     name = req.body.artist.name, 
     dob = req.body.artist.dateOfBirth, 
@@ -84,12 +81,24 @@ router.post('/artists',(req, res, next) => {
 });   // end POST route//
 
 
+- PUT 
+  - Updates the artist  with the specified artist ID using the information from the `artist` property of the request body 
+  and saves it to the database.  Returns a 200 response  with the updated artist on the `artist` property  of the response body
+
+  - If any required fields are missing, returns a 400 response
+  - If an artist with the supplied artist ID doesn't exist, returns a 404 response
+
+//mcdonalds  req.body.artist.xxxx  id, name dob is_currently_employed
+//mcdonalds  res.status(200).json({ "artist": artistVariablefromthedatabasetoproveitupdated   });
+//mcdonalds res.status(400).end() IF FLDS MISSING
+//mcdonalds res.status(404).end() IF NO SUCH ARTIST ID FOUND
 router.put( `/artists/:id` ,(req, res, next)=>{
   const msg = ``;
   msg =`Gonna put PRE&C into artist --${req.params.id}-- `;
   console.log(msg);
   next('No route here yet in ARTIST-id PUT.');
 } );
+
 
 router.delete( `/artists/:id`, (req, res, next)=>{
   // CH AN GE WORKING TO FALSE .
