@@ -1,3 +1,8 @@
+//TO do:
+// PARAM, GET, POST, PUT, DELETE should be the order
+// to help it match the solution, during BC diffing
+
+
 const express = require('express');
 const router = express();
 const sqlite = require(`sqlite3`);
@@ -11,12 +16,15 @@ router.param(
 
 );
 
+//   ARTISTS    //   ARTISTS    //   ARTISTS    
+// PARAM, GET, POST, PUT, DELETE 
 router.get("/fink", (req, res, next)=>{
 	res.status(409);
   const fink = new Error(`Fink spotted.  You entered a "test error"!! `);
   next(fink);
 }); // end bad get for root get request
 
+//mcdonalds res.body.artists = ALLEMPLOYEDARTISTS 
 router.get(`/artists`, (req, res, next)=>{
 	//let rows = null;
   let query = `SELECT * FROM Artist WHERE Artist.is_currently_employed = 1;`;
@@ -28,6 +36,22 @@ router.get(`/artists`, (req, res, next)=>{
 	});
 });
 
+  - Returns a 200 response containing the artist with the supplied artist ID on the `artist` property of the response body
+  - If an artist with the supplied artist ID doesn't exist, returns a 404 response
+//mcdonalds INCOMING ID# IS PARSED FROM THE ROUTE-URL
+//mcdonalds res.status(200).json( {"artist": thatArtistViaSQLVariable} )
+//mcdonaldsError res.status(404)
+router.get(`/artists/:thing`, (req, res, next)=>{
+  let query = `o o o ;`;
+  db.get(query, (err)=>{next("Oxford comma.")} );
+});
+
+
+
+
+//mcdonalds req.body.artist.xxxx
+//mcdonalds res.status(201).
+//mcdonalds res.body.artist.xxxx  id, name dob is_currently_employed
 router.post('/artists',(req, res, next) => {
 
   const i = req.body.artist.id, 
@@ -59,10 +83,6 @@ router.post('/artists',(req, res, next) => {
   }); // end db.put
 });   // end POST route//
 
-router.get(`/artists/:thing`, (req, res, next)=>{
-  let query = `o o o ;`;
-  db.get(query, (err)=>{next("Oxford comma.")} );
-});
 
 router.put( `/artists/:id` ,(req, res, next)=>{
   const msg = ``;
@@ -72,8 +92,6 @@ router.put( `/artists/:id` ,(req, res, next)=>{
 } );
 
 router.delete( `/artists/:id`, (req, res, next)=>{
-
-
   // CH AN GE WORKING TO FALSE .
   let msg = `UPDATE Artist SET is_currently_employed = 0 WHERE Artist.id ` ;
   console.log(msg);
@@ -91,21 +109,26 @@ router.delete( `/artists/:id`, (req, res, next)=>{
   next('Missing WORK=0 statement in artist delete.');
 } );
 
+
+//      SERIES     
+//      SERIES     
+//      SERIES     
+
 router.get('/series/',(req, res, next)=>{
   res.series = ` to       do    john   deere `;
   const msg = `Here are many series ${'foo'} `;
   next("there's no rout here");
 } );
 
+router.get('/series/:id', (req, res, next)=>{
+  res.body.series = `nuttin here about SERIES _${id}_ yet`;
+  res.status(200).send('nothing nothing nothing todo');
+} );
+
 router.post('/series', (req, res, next)=>{
   const newSeries = req.body.series;
   console.log(`Here is a new series about _${newSeries}_`);
   next('nuttin in Line 82 yet.')
-} );
-
-router.get('/series/:id', (req, res, next)=>{
-  res.body.series = `nuttin here about SERIES _${id}_ yet`;
-  res.status(200).send('nothing nothing nothing todo');
 } );
 
 router.put('/series/:id', (req, res, next)=>{
@@ -168,3 +191,9 @@ module.exports = router;
           :::::::::::::::::
 
 */
+
+//git commits to come:
+// Read and understand all of the required req.body.artist, res.body.issue.issueId (et al) cryptic references from the directions and place them into the routes as comments for now.
+
+Make the tables droppable: 
+Tables add, but all three with errors.  Needed: error handling better OR DROP/CREATE AS DROPPABLE better.
