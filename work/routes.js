@@ -81,12 +81,7 @@ router.post('/artists',(req, res, next) => {
 });   // end POST route//
 
 
-- PUT 
-  - Updates the artist  with the specified artist ID using the information from the `artist` property of the request body 
-  and saves it to the database.  Returns a 200 response  with the updated artist on the `artist` property  of the response body
 
-  - If any required fields are missing, returns a 400 response
-  - If an artist with the supplied artist ID doesn't exist, returns a 404 response
 
 //mcdonalds  req.body.artist.xxxx  id, name dob is_currently_employed
 //mcdonalds  res.status(200).json({ "artist": artistVariablefromthedatabasetoproveitupdated   });
@@ -100,6 +95,11 @@ router.put( `/artists/:id` ,(req, res, next)=>{
 } );
 
 
+
+//mcdonalds incoming id# will be on the route-parsed
+// res.status(200).end() if all cool of course
+// res.status(404) hey that artist ID did not exist 
+//mcdonalds 
 router.delete( `/artists/:id`, (req, res, next)=>{
   // CH AN GE WORKING TO FALSE .
   let msg = `UPDATE Artist SET is_currently_employed = 0 WHERE Artist.id ` ;
@@ -123,17 +123,35 @@ router.delete( `/artists/:id`, (req, res, next)=>{
 //      SERIES     
 //      SERIES     
 
+
+//mcdonalds res.status(200).json( "series": series )
+//mcdonalds 
 router.get('/series/',(req, res, next)=>{
   res.series = ` to       do    john   deere `;
   const msg = `Here are many series ${'foo'} `;
   next("there's no rout here");
 } );
 
+
+
+
+
 router.get('/series/:id', (req, res, next)=>{
   res.body.series = `nuttin here about SERIES _${id}_ yet`;
   res.status(200).send('nothing nothing nothing todo');
 } );
 
+
+- POST
+  - Creates a new series with the information from the `series` property of the request body and saves it to the database. Returns a 201 response with the newly-created series on the `series` property of the response body
+  - If any required fields are missing, returns a 400 response
+//mcdonalds req.body.
+//mcdonalds req.body.id, 
+//mcdonalds req.body.name 
+//mcdonalds req.body.dob 
+//mcdonalds req.body.is_currently_employed
+//mcdonalds SQL "select from make SQL" make a series in the database, obvi
+//mcdonalds res.status(201).json( "series": series-from-SQL-GET )
 router.post('/series', (req, res, next)=>{
   const newSeries = req.body.series;
   console.log(`Here is a new series about _${newSeries}_`);
