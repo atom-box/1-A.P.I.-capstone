@@ -82,9 +82,9 @@ In order for the tests and provided front-end to run properly, you will need to 
 ### Route Paths and Functionality
 
 **/api/artists**
-- GET
+- GET 8/2
   - Returns a 200 response containing all saved currently-employed artists (`is_currently_employed` is equal to `1`) on the `artists` property of the response body
-- POST
+- POST 
   - Creates a new artist with the information from the `artist` property of the request body and saves it to the database. Returns a 201 response with the newly-created artist on the `artist` property of the response body
   - If any required fields are missing, returns a 400 response
 
