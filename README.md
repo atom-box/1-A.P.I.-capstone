@@ -8,14 +8,10 @@ In this capstone project, you will build all of the routing and database logic f
 The X-Press Publishing internal tool should allow users to:
 - Create, view, and update artists
 - Create, view, update, and delete comic book series
-- Create, view, update, and delete issues of a specific comic book series
+- Create, view, update, and delete issues of a specific comic book series  ELEVEN ROUTES!
 
 You can view all of this functionality in action in the video below:
 
-<video width="100%" height="100%" controls>
-   <source src="https://s3.amazonaws.com/codecademy-content/programs/build-apis/solution-videos/XPressPublishing480.mov" type="video/mp4">
- The markdown processor does not support the video tag.
-</video>
 
 ## How To Begin
 
@@ -26,10 +22,6 @@ To view your local version of the site, open **index.html** in Google Chrome.
 ## Implementation Details
 
 To complete this project, you will need to 
-(1)
-Next action. 
-Make the tables droppable: 
-Tables add, but all three with errors.  Needed: error handling better OR DROP/CREATE AS DROPPABLE better.
 -----
 
 * **Artist**
