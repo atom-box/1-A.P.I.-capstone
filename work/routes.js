@@ -135,16 +135,18 @@ router.get('/series/',(req, res, next)=>{
 
 
 
+ GET
+  - Returns a 200 response containing the series with the supplied series ID on the `series` property of the response body
+  - If a series with the supplied series ID doesn't exist, returns a 404 response
 
+//mcdonalds res.status(200).json( "series": id )
+//mcdonalds res.status(404) if series does not exist
 router.get('/series/:id', (req, res, next)=>{
   res.body.series = `nuttin here about SERIES _${id}_ yet`;
   res.status(200).send('nothing nothing nothing todo');
 } );
 
 
-- POST
-  - Creates a new series with the information from the `series` property of the request body and saves it to the database. Returns a 201 response with the newly-created series on the `series` property of the response body
-  - If any required fields are missing, returns a 400 response
 //mcdonalds req.body.
 //mcdonalds req.body.id, 
 //mcdonalds req.body.name 

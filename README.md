@@ -93,16 +93,8 @@ In order for the tests and provided front-end to run properly, you will need to 
   - Returns a 200 response containing the artist with the supplied artist ID on the `artist` property of the response body
   - If an artist with the supplied artist ID doesn't exist, returns a 404 response
 - PUT 
-  - Updates the artist 
-  with the specified artist ID 
-  using the information from 
-  the `artist` property 
-  of the request body 
-  and saves it to the database. 
-  Returns a 200 response 
-  with the updated artist 
-  on the `artist` property 
-  of the response body
+  - Updates the artist  with the specified artist ID using the information from the `artist` property of the request body 
+  and saves it to the database.  Returns a 200 response  with the updated artist on the `artist` property  of the response body
 
   - If any required fields are missing, returns a 400 response
   - If an artist with the supplied artist ID doesn't exist, returns a 404 response
@@ -135,10 +127,7 @@ In order for the tests and provided front-end to run properly, you will need to 
   - Deletes the series with the supplied series ID from the database if that series has no related issues. Returns a 204 response.
   - If the series with the supplied series ID has related issues, returns a 400 response.
   - If a series with the supplied series ID doesn't exist, returns a 404 response
-    &^&^^^^&^&^&^&^^&^&^&&^&&&&^^^^^^^^&
-    &^&^^^^&^&^&^&^^&^&^&&^&&&&^^^^^^^^&
-    &^&^^^^&^&^&^&^^&^&^&&^&&&&^^^^^^^^&
-    &^&^^^^&^&^&^&^^&^&^&&^&&&&^^^^^^^^&
+ 
 
 
 
